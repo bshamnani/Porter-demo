@@ -60,11 +60,11 @@ parameters:
   - name: fabric_resource_name 
     type: string
     description: name of resource to create
-    env: FABRIC_RESOURCE_NAME
+    # env: FABRIC_RESOURCE_NAME
   - name: fabric_resource_type
     type: string
     description: Type of resource to create
-    env: FABRIC_RESOURCE_TYPE
+    # env: FABRIC_RESOURCE_TYPE
 
 # Declare and optionally configure the mixins used by the bundle
 mixins:
@@ -75,9 +75,11 @@ mixins:
 install:
   - exec:
       description: "Install Hello World"
-      command: ./helpers.sh
+      command: bash
       arguments:
-        - install
+        - ./install_fabric.sh
+        - ${bundle.parameters.fabric_resource_name}
+        - ${bundle.parameters.fabric_resource_type}
 
 # - az:
   #     description: "Azure CLI login"
