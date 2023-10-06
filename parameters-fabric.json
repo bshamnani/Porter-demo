@@ -1,0 +1,19 @@
+{
+    "schemaType": "ParameterSet",
+    "schemaVersion": "1.0.1",
+    "name": "parameters-fabric",
+    "parameters": [
+        {
+            "name": "fabric_resource_name",
+            "source": {
+                "value": "test_fabric"
+            }
+        },
+        {
+            "name": "fabric_resource_type",
+            "source": {
+                "value": "Lakehouse"
+            }
+        }
+    ]
+}

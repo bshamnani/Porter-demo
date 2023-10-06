@@ -1,0 +1,13 @@
+curl 'https://login.microsoftonline.com/common/oauth2/v2.0/token' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://msit.powerbi.com' \
+  -H 'Referer: https://msit.powerbi.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: cross-site' \
+  -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/117.0.0.0' \
+  -H 'content-type: application/x-www-form-urlencoded;charset=utf-8' \
+  --data-raw 'client_id=871c010f-5e61-4fb1-83ac-98610a7e9110&redirect_uri=https%3A%2F%2Fmsit.powerbi.com%2Fsignin&scope=https%3A%2F%2Fanalysis.windows.net%2Fpowerbi%2Fapi%2F.default%20openid%20profile%20offline_access&code=0.ARoAv4j5cvGGr0GRqy180BHbRw8BHIdhXrFPg6yYYQp-kRAaAI0.AgABAAIAAAAtyolDObpQQ5VtlI4uGjEPAgDs_wUA9P-33T_GwkUuj70F6C6NExF1lwvOTXypt-HFmt8D-Ie4WHqGz9ETCE2o9kzIOo83pcx0rx7Dgk02h7el7dQ9TD9A93SPzuwFKDI6Zl5aKvDsWrCsBddW0xf7y7hYrjjD5Fa9nNFrduOkN-FPbsdHgc0z53AS_maav30VkqQx9sCsDU_JzCFdfI1O9q42JXxTTCUEYPQyF4HBVss0zCbTV4fIh8PYkYLLyihBp33p5pM3EuA7ktkhqJ6rgt5w-HLJP_g40JHLi8ta386SetVdizorNhf2lyRW7078sQspQOofaXJyOadmOHPimAifkBun9EoydX0tKdLNVysN1ciZNjNNgpmo8PIjbvbtQXdwdwp5d-z1DSBTGgvuPxdQmNmbLlyhKgsfrP_5Uu8CXqYTZ5MHcoQWwteEdB4x7nDBNjzo9HoiDsfs_6DN1CLTk2lF06W-jzZceOeiRrZCfe3ollruP36egDKJuGwPJVov9VL7gd26mLZk4SYMQtYGhFXFKjB1kdG9-eQUrLnRxS-qLYn0VB3PhExj7Yis7ynOO0o6m5vP9ghLRrZlE4lfjtJ22ZzsUik_AO8H5ZjjN5xWskD_aZOOv0R9IqmTur1sOog5ny617oDC9jUtRj3pH6A9dr8_acnflFVrPnEHzhY1m-XP58J4ZqDzTgQq2bgxsshpe9MxSH0jkMBex4_slD8V8W8CBU7OLlYusNpj80EaQKWiEiBZXvChCdC_G-RDF1j-VAGeJ3oP43JabQNrUQc2bLV35gTuXed8hq7RbVvNjszeg5wFXyuF3TaqI2_9ar6nTE97tZEs7eXbvCCqIPzrTPYAYSfvO_T0bYqL7FM31eKPM7w0bpZ3jtlMW5i-aqL5XeahFYOLXpC3GmioYhOTd7McaFY-FcP1meptsbRQ7TMLAAKYtvoOpUf-5afevqYa2tTcGMA-K2KJcUBU79SsXgkV7oqkHrI1AXoZ1kVEDs9xLCfbZNsKkvE15fEG9t6u1-2ZbVNQPRjk3cLwsoHural00nj5lm1TN-vjp2Ir&x-client-SKU=msal.js.browser&x-client-VER=2.25.0&x-ms-lib-capability=retry-after, h429&x-client-current-telemetry=5|865,0,,,|,&x-client-last-telemetry=5|0|||0,0&code_verifier=WqAAhzOO0BuyV2PuW1Ba4bg6hwOOvZswuBe3P0D96fk&grant_type=authorization_code&client_info=1&client-request-id=0c6a1dba-6b4f-4b61-839c-1b173f18aa57&claims=%7B%22access_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&X-AnchorMailbox=Oid%3Ad43c5083-4060-4966-8b1a-22399c1aaf37%4072f988bf-86f1-41af-91ab-2d7cd011db47' \
+  --compressed

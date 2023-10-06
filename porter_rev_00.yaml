@@ -1,0 +1,180 @@
+# This is the configuration for Porter
+# You must define steps for each action, but the rest is optional
+# See https://getporter.org/bundle/manifest/file-format/ for a description of all the allowed fields in this document.
+# See https://getporter.org/author-bundles for documentation on how to configure your bundle.
+# Uncomment out the sections below to take full advantage of what Porter can do!
+
+# Optional indicator of the resource type of this file
+schemaType: Bundle
+
+# Version of the porter.yaml schema used by this file.
+schemaVersion: 1.0.1
+
+# Name of the bundle
+name: porter-hello
+
+# Version of the bundle. Change this each time you modify a published bundle.
+version: 0.1.0
+
+# Description of the bundle and what it does.
+description: "An example Porter configuration"
+
+# Registry where the bundle is published to by default
+registry: "demo-porter-mixins"
+
+# If you want to customize the Dockerfile in use, uncomment the line below and update the referenced file. 
+# See https://getporter.org/bundle/custom-dockerfile/
+dockerfile: template.Dockerfile
+
+# credentials:
+# - name: azure_client_id
+#   env: AZURE_CLIENT_ID
+#   description: AAD Client ID for Azure account authentication
+# - name: azure_tenant_id
+#   env: AZURE_TENANT_ID
+#   description: Azure AAD Tenant Id for Azure account authentication
+# - name: azure_client_secret
+#   env: AZURE_CLIENT_SECRET
+#   description: AAD Client Secret for Azure account authentication
+# - name: azure_subscription_id
+#   env: AZURE_SUBSCRIPTION_ID
+#   description: Azure Subscription Id used to set the subscription where the account has access to multiple subscriptions
+
+parameters:
+  - name: resource_group
+    type: string
+    description: The name of the resource group to create
+    default: test-az-mixin-bhavesh-2
+  - name: location
+    type: string
+    description: Location
+    default: eastus
+  - name: VM
+    type: string
+    description: The name of virtual machine to create
+    default: test-vm-bhavesh-2
+  - name: storage_account
+    type: string
+    description: The name of storage account (ADLS Gen2) to create
+    default: teststoragebhavesh2
+  - name: fabric_resource_name 
+    type: string
+    description: name of resource to create
+    # env: FABRIC_RESOURCE_NAME
+  - name: fabric_resource_type
+    type: string
+    description: Type of resource to create
+    env: FABRIC_RESOURCE_TYPE
+
+# Declare and optionally configure the mixins used by the bundle
+mixins:
+  - exec
+  - az
+
+# Define the steps that should execute when the bundle is installed
+install:
+  - exec:
+      description: "Install Hello World"
+      command: bash
+      arguments:
+        - helpers.sh
+        - ${ bundle.parameters.fabric_resource_name }
+# - az:
+  #     description: "Azure CLI login"
+  #     arguments: 
+  #       - "login" 
+  #     flags:
+  #       service-principal:
+  #       username: ${ bundle.credentials.azure_client_id }
+  #       password: ${ bundle.credentials.azure_client_secret }
+  #       tenant: ${ bundle.credentials.azure_tenant_id }
+
+  # - az:
+  #     description: "Azure set subscription Id"
+  #     arguments: 
+  #       - "account" 
+  #       - "set" 
+  #     flags:
+  #       subscription: ${ bundle.credentials.azure_subscription_id }
+
+  # - az:
+  #     description: "Create resource group if not exists"
+  #     arguments: 
+  #       - "group" 
+  #       - "create" 
+  #     flags:
+  #       name: ${ bundle.parameters.resource_group }
+  #       location: ${ bundle.parameters.location }
+
+  # - az:
+  #     description: "Create VM using az mixin"
+  #     arguments:
+  #       - "vm"
+  #       - "create"
+  #     flags:
+  #       resource-group: ${ bundle.parameters.resource_group }
+  #       name: ${ bundle.parameters.VM }
+  #       image: debian
+  #       generate-ssh-keys:
+  #       public-ip-sku: Standard 
+  #     ignoreErrors:
+  #       output:
+  #         contains: ["already exists"]
+
+  # - az:
+  #     description: "Create a storage account (ADLS Gen2)"
+  #     arguments:
+  #       - "storage"
+  #       - "account"
+  #       - "create"
+  #     flags:
+  #       resource-group: ${ bundle.parameters.resource_group }
+  #       name: ${ bundle.parameters.storage_account }
+  #       location: ${ bundle.parameters.location }
+  #       sku: "Standard_LRS" 
+  #       kind: "StorageV2" 
+  #       hierarchical-namespace: "true"
+  #     ignoreErrors:
+  #       output:
+  #         contains: ["already exists"]
+# Define the steps that should execute when the bundle is upgraded
+upgrade:
+  - exec:
+      description: "World 2.0"
+      command: ./helpers.sh
+      arguments:
+        - upgrade
+
+# Define the steps that should execute when the bundle is uninstalled
+uninstall:
+  - exec:
+      description: "Uninstall Hello World"
+      command: ./helpers.sh
+      arguments:
+        - uninstall
+
+# Below is an example of how to define credentials
+# See https://getporter.org/author-bundles/#credentials
+#credentials:
+#  - name: kubeconfig
+#    path: /home/nonroot/.kube/config
+#  - name: username
+#    env: USERNAME
+
+# Below is an example of how to define parameters
+# See https://getporter.org/author-bundles/#parameters
+#parameters:
+#  - name: mysql_user
+#    type: string
+#    default: wordpress
+
+# Below is an example of how to define state variables
+# for the terraform mixin. This allows you to track
+# terraform state using the bundle instead of configuring
+# a remote backend.
+# See https://getporter.org/author-bundles/#state
+#state:
+#  - name: tfstate
+#    path: terraform/terraform.tfstate
+#  - name: tfvars
+#    path: terraform/terraform.tfvars.json
