@@ -57,13 +57,21 @@ parameters:
     type: string
     description: The name of storage account (ADLS Gen2) to create
     default: teststoragebhavesh2
-  - name: fabric_resource_name 
-    type: string
-    description: name of resource to create
-    # env: FABRIC_RESOURCE_NAME
-  - name: fabric_resource_type
-    type: string
-    description: Type of resource to create
+  # - name: fabric_resource_name 
+  #   type: string
+  #   description: name of resource to create
+  #   # env: FABRIC_RESOURCE_NAME
+  # - name: fabric_resource_type
+  #   type: string
+  #   description: Type of resource to create
+  #   # env: FABRIC_RESOURCE_TYPE
+  - name: fabric_prop
+    type: file
+    path: ./fabric_prop.json
+    description: Properties of resource to create
+    # default:
+    #   logLevel: 11
+    #   debug: true
     # env: FABRIC_RESOURCE_TYPE
 
 # Declare and optionally configure the mixins used by the bundle
@@ -78,8 +86,8 @@ install:
       command: bash
       arguments:
         - ./install_fabric.sh
-        - ${bundle.parameters.fabric_resource_name}
-        - ${bundle.parameters.fabric_resource_type}
+        - ${bundle.parameters.fabric_prop}
+
 
 # - az:
   #     description: "Azure CLI login"
