@@ -3,17 +3,21 @@
 echo "HELLOWORLD"
 
 fabric_prop=$1
-cat $fabric_prop
-echo
+resource_name=$(jq -r '.resource_name' $fabric_prop)
+resource_type=$(jq -r '.resource_type' $fabric_prop)
+
+echo $resource_name
+echo $resource_type
 echo "THE END"
 
-# fabric_resource_name=$1
-# fabric_resource_type=$2
-# echo $fabric_resource_name
-# echo $fabric_resource_type
+access_token=$(/etc/getToken.sh|jq -r '.access_token')
 
-# curl -X POST https://api.fabric.microsoft.com/v1/workspaces/6bd1de78-9423-40f6-bf50-d9c146a39176/items \
-# -H 'Content-Type: application/json' \
-# -H 'Authorization: Bearer '${access_token} \
-# -d '{"displayName": "'${FABRIC_RESOURCE_NAME}'" ,"type": "Lakehouse" }' 
+curl -X POST https://api.fabric.microsoft.com/v1/workspaces/1804d483-0fa1-4c63-9cf7-8f30ec260b4e/items \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer '${access_token} \
+     -d '{"displayName": "test_rg_1" ,"type": "Lakehouse" }' 
 
+curl -X POST -H 'Content-Type: application/json' \
+     -H 'Authorization: Bearer '${access_token} \
+     -d  '{"displayName": "demo_test_workspace_1"}' \
+    https://api.fabric.microsoft.com/v1/workspaces
