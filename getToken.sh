@@ -1,16 +1,1 @@
-curl 'https://login.microsoftonline.com/common/oauth2/v2.0/token' \
-  -H 'Accept: */*' \
-  -H 'Accept-Language: en-US,en;q=0.9' \
-  -H 'Connection: keep-alive' \
-  -H 'Origin: https://msit.powerbi.com' \
-  -H 'Referer: https://msit.powerbi.com/' \
-  -H 'Sec-Fetch-Dest: empty' \
-  -H 'Sec-Fetch-Mode: cors' \
-  -H 'Sec-Fetch-Site: cross-site' \
-  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60' \
-  -H 'content-type: application/x-www-form-urlencoded;charset=utf-8' \
-  -H 'sec-ch-ua: "Microsoft Edge";v="117", "Not;A=Brand";v="8", "Chromium";v="117"' \
-  -H 'sec-ch-ua-mobile: ?0' \
-  -H 'sec-ch-ua-platform: "Windows"' \
-  --data-raw 'client_id=871c010f-5e61-4fb1-83ac-98610a7e9110&redirect_uri=https%3A%2F%2Fmsit.powerbi.com%2Fsignin&scope=https%3A%2F%2Fanalysis.windows.net%2Fpowerbi%2Fapi%2F.default%20openid%20profile%20offline_access&code=0.ARoAv4j5cvGGr0GRqy180BHbRw8BHIdhXrFPg6yYYQp-kRAaAI0.AgABAAIAAAAtyolDObpQQ5VtlI4uGjEPAgDs_wUA9P-9LLrA2JTOqpj-wEk410IdNPcncrXEZRD-SulzOkNOT4Ha1v-msL4nxPoWYd0tfjkcMRHd9-PFsJqBKVrg6lONtWjJKokMKKMruAiA9vQaMGa2MqXhmSmo6tXVJwdt3j_Mh9PPjk7uu40FBeZ76oTAlyiEBmKHWlBpenLED8sD25cIC_3sAts5mCSF3N7eafmvEAr-L2ZgT7hdTbXa2Z0nNF9BUo7N1LjRzWLoMZLLvAS7jDzyOwoU6Tui1AXfm97Vm6d9yYFhNd6TdX3CUNzUoLzGFIcy-8oJXCJCnQNmoes1GJIaeN8capG8DUxS6YMOV05kWFsAE1Pq8hwRUe-hbrFwySl_A9Bk9encbP7LYdFPEjSH7Jwvqr_yWO6qlcvF2rlLgyi53v9Xp3OJtrh9vKMctmqn1T7878vivxjG8gWedJ6-gDlg_0CwgzTLxLU_SuzpV7Y984dmLPX23jQYUAhHmqXi71ofFHROIxZs6Zs5V8IWGqnRSSgQU5pzpZ4Oo-28lixYLYIRarvtpC4KhpSj8VrYnuTQh9FU1eXAQgpIygQmxUXY-ufdl3hFiPvEflwc--V5fPu3rgFsAmFPa3W-hlNILbIgXp5DGZ9r_2eXGA5cgBEufqNsDU0BEkSDLkrVudBO6Bfga90qO1DZlaJkGZhonZjUV5mtGkdRb0yO41Mkid1fB68PopKKo1LC0VDR55dD6PNTCKWYBpEFtjS1msgRuhW2dFDJF3uXOx0ld9u-sv5qij9w0IhEr8bB3l36QuJ54_0sPwPuUfaXJnCiYFiwdj3iVbHwlhKprMdSizQOo7pv3Ha8IdAkvEm3b2QCmR8CEnaLA8C9042EzoPFFpWl-IlXuyZBOYaOz5TBvPormbAZeATuJyaB1PpUvHPlu1cwkFIGDqAPcr-m5BtIcwMlUh3CwaXMAUjn80GR8rBFQ6UFf41Zj1uOqFs8DTbEf6cXIFMklhN28CVXPhKwOZkOqBYM85U7NpoAu8DEz00gBi9iK7wqyJk384g6wiP45wJrSnfDxFG__fV96xWyOht94xAsnx1ifgF4cA-nsRlzQ8VduBQM&x-client-SKU=msal.js.browser&x-client-VER=2.25.0&x-ms-lib-capability=retry-after, h429&x-client-current-telemetry=5|865,0,,,|,&x-client-last-telemetry=5|0|||0,0&code_verifier=g_KgrYCj5C8ZydMT36feoQhCfg8TH-QJO_fo__2kNxM&grant_type=authorization_code&client_info=1&client-request-id=4e22e974-04df-4aa3-aef9-4a951d4c9dd1&claims=%7B%22access_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&X-AnchorMailbox=Oid%3Ad43c5083-4060-4966-8b1a-22399c1aaf37%4072f988bf-86f1-41af-91ab-2d7cd011db47' \
-  --compressed
+
